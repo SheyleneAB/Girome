@@ -1,5 +1,5 @@
 
-FROM apache:latest
+FROM  ubuntu/apache2
 
 RUN apt-get update && apt-get install -y apache2
 
