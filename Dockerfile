@@ -1,12 +1,9 @@
+FROM nginx
 
-FROM  ubuntu/apache2
+COPY html /usr/share/nginx/html
 
-RUN apt-get update && apt-get install -y apache2
-
-COPY html /var/www/html/ 
-
-RUN mkdir -p /var/www/html && date > /var/www/html/buildtime.txt
+RUN date > /usr/share/nginx/html/buildtime.txt
 
 EXPOSE 80
- 
-CMD service apache2 start && bash 
+
+CMD ["nginx", "-g", "daemon off;"]
